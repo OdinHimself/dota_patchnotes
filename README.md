@@ -1,10 +1,14 @@
 # Dota 2 patch 7.42 forklaret
 
-En uofficiel, dansk forklaring af Dota 2 patch 7.42 (18. november 2026). Siden viser gammel og ny værdi side om side og har tre små forsøg: Tormentor, Item Potency og heltes liv.
+Uofficiel forklaring på dansk af Dota 2-patchen 7.42. Siden viser de store ændringer med gammel værdi (rød, overstreget) og ny værdi (grøn) side om side, har små forsøg man kan prøve selv, og et opslag med alle helte, items, neutrale items, enchantments og creeps.
 
-Siden er ren HTML, CSS og JavaScript uden byggetrin og uden eksterne afhængigheder.
+Alle tal kommer fra Valves officielle noter: https://www.dota2.com/patches/7.42
+
+Længere beskrivelser, især af nye evner, er ikke kopieret ind. Tal og korte udsagn er med, og opslaget linker til Valves noter for resten.
 
 ## Kør lokalt
+
+Siden er statisk HTML, CSS og JavaScript uden build.
 
 ```
 python3 -m http.server 8000
@@ -12,9 +16,24 @@ python3 -m http.server 8000
 
 Åbn derefter http://localhost:8000.
 
-## Kilder og dækning
+## Opbygning
 
-Siden dækker systemændringerne og Valves rettelser, ikke alle 127 helte. Hver række har en prik: udfyldt betyder, at tallet står i Valves egne noter, tom betyder, at det kommer fra pressens gennemgang. De fulde noter står på https://www.dota2.com/patches/7.42.
+- `index.html` - siden. Genereret af `tools/build_pages.py`.
+- `styles.css`, `app.js` - udseende og de små værktøjer samt opslaget.
+- `data.js` - alle helte, items, neutrale items, enchantments og creeps som data. Genereret af `tools/parse_notes.py`.
+- `fonts/` - Archivo (SIL Open Font License).
 
-Dota 2 er et varemærke tilhørende Valve Corporation. Projektet er ikke tilknyttet Valve.
-Skrifttypen Archivo ligger under SIL Open Font License (se `fonts/OFL-Archivo.txt`).
+## Opdatér data
+
+Gem Valves noter som en tekstfil, og kør:
+
+```
+python3 tools/parse_notes.py noter.txt data.js
+python3 tools/build_pages.py .
+```
+
+Teksterne i de forklarende afsnit står i `tools/build_pages.py`. Notefilen er ikke med i repoet.
+
+## Udgiv som GitHub Pages
+
+Settings, Pages, Deploy from a branch, vælg `main` og `/ (root)`.
