@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="da">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dota 2 patch 7.42 forklaret</title>
+  <meta name="description" content="Dota 2 patch 7.42 på dansk: de store ændringer med gammel og ny værdi side om side, og små forsøg du kan prøve selv.">
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:title" content="Dota 2 patch 7.42 forklaret">
+  <meta property="og:description" content="Tormentor, illusioner, heltes liv og magi. Gammel og ny værdi side om side.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/archivo-wdth.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="top__brand" href="#top">Patch 7.42</a>
+    <nav class="top__nav" aria-label="Sektioner">
+      <a href="#tormentor">Tormentor</a>
+      <a href="#illusioner">Illusioner</a>
+      <a href="#helte">Helte</a>
+      <a href="#map">Map</a>
+      <a href="#items">Items</a>
+      <a href="#rettelser">Rettelser</a>
+      <a href="#kilder">Kilder</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <h1 class="hero__title">Patch 7.42</h1>
+      <p class="hero__lede">Valve udgav Dota 2-patchen den 18. november 2026. Den rører 127 helte og næsten alle items. Her er de ændringer, der flytter mest, med gammel og ny værdi side om side.</p>
+
+      <div class="ruler" role="group" aria-label="En kamp i minutter, med tre ændringer placeret hvor de sker">
+        <div class="ruler__track"></div>
+        <span class="tick tick--first" style="--t:0">0</span>
+        <span class="tick tick--minor" style="--t:5"></span>
+        <span class="tick" style="--t:10">10</span>
+        <span class="tick tick--minor" style="--t:15"></span>
+        <span class="tick" style="--t:20">20</span>
+        <span class="tick tick--minor" style="--t:25"></span>
+        <span class="tick" style="--t:30">30</span>
+        <span class="tick tick--minor" style="--t:35"></span>
+        <span class="tick" style="--t:40">40</span>
+        <span class="tick tick--minor" style="--t:45"></span>
+        <span class="tick tick--last" style="--t:50">50 min</span>
+
+        <span class="ruler__ghost" title="Før: Tormentor efter 20 min"><span class="ruler__ghost-label">20 min</span></span>
+
+        <a class="mark" href="#map" style="--t:0; --h:196">
+          <span class="mark__label">
+            <span class="mark__name">Starthorn</span>
+            <span class="mark__note">Passiv XP: 50 i minuttet</span>
+          </span>
+        </a>
+        <a class="mark mark--move" id="mark-tormentor" href="#tormentor" style="--t:15; --h:132">
+          <span class="mark__label">
+            <span class="mark__name">Tormentor</span>
+            <span class="mark__note">Nu efter 15 min, før efter 20</span>
+          </span>
+        </a>
+        <a class="mark mark--end" href="#items" style="--t:50; --h:68">
+          <span class="mark__label">
+            <span class="mark__name">Sidste neutral tier</span>
+            <span class="mark__note">Åbner efter 50 min</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="kort">
+    <div class="wrap">
+      <h2 class="sec__title">Kort fortalt</h2>
+      <p class="sec__lede">Fem ændringer, der sætter tonen. Rød og overstreget er det gamle, grøn er det nye.</p>
+
+      <ul class="diff">
+        <li class="diff__row">
+          <div class="diff__k"><span class="dot" role="img" aria-label="Fra pressens gennemgang" title="Fra pressens gennemgang"></span><a href="#tormentor">Første Tormentor</a></div>
+          <div class="diff__v"><span class="sr">Før: </span><del>20 min</del><span class="sr"> Nu: </span><ins>15 min</ins></div>
+          <p class="diff__p">Objektivet åbner fem minutter tidligere og kan dermed påvirke kampen i midtspillet.</p>
+        </li>
+        <li class="diff__row">
+          <div class="diff__k"><span class="dot" role="img" aria-label="Fra pressens gennemgang" title="Fra pressens gennemgang"></span><a href="#helte">Basisliv for helte</a></div>
+          <div class="diff__v"><span class="sr">Før: </span><del>120</del><span class="sr"> Nu: </span><ins>200</ins></div>
+          <p class="diff__p">Alle helte starter med mere liv. Til gengæld giver Strength lidt mindre liv pr. point.</p>
+        </li>
+        <li class="diff__row">
+          <div class="diff__k"><span class="dot dot--valve" role="img" aria-label="Står i Valves noter" title="Står i Valves noter"></span><a href="#illusioner">Illusioners Item Potency</a></div>
+          <div class="diff__v"><span class="sr">Nu: </span><ins>20%</ins></div>
+          <p class="diff__p">Illusioner kan nu bruge de fleste on-hit-effekter fra items, men med en femtedel af styrken.</p>
+        </li>
+        <li class="diff__row">
+          <div class="diff__k"><span class="dot dot--valve" role="img" aria-label="Står i Valves noter" title="Står i Valves noter"></span><a href="#helte">Spell damage</a></div>
+          <div class="diff__v diff__v--text"><span class="sr">Nu: </span><ins>Mindre skade</ins></div>
+          <p class="diff__p">De fleste Magic- og Pure-spells gør mindre skade. Intelligence giver til gengæld lidt mere magic resistance.</p>
+        </li>
+        <li class="diff__row">
+          <div class="diff__k"><span class="dot" role="img" aria-label="Fra pressens gennemgang" title="Fra pressens gennemgang"></span><a href="#items">Neutrale tiers</a></div>
+          <div class="diff__v"><span class="sr">Før: </span><del>5</del><span class="sr"> Nu: </span><ins>4</ins></div>
+          <p class="diff__p">Neutrale items har fire tiers i stedet for fem. Den sidste åbner efter 50 minutter.</p>
+        </li>
+      </ul>
+
+      <p class="legend">Det her er ikke alle 127 helte. Siden dækker systemændringerne og Valves rettelser. Tallene for de enkelte helte står i <a href="https://www.dota2.com/patches/7.42">Valves egne noter</a>. Prikken foran en række viser kilden: <span class="dot dot--valve"></span>står i Valves egne noter, <span class="dot"></span>kommer fra pressens gennemgang og er endnu ikke tjekket mod Valves side.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="tormentor">
+    <div class="wrap">
+      <h2 class="sec__title">Tormentor kommer tidligere og giver mere</h2>
+      <p class="sec__lede">Tormentor dukker op fem minutter før, tåler mere og dropper en ny item, der sender mega creeps ned ad alle tre baner.</p>
+
+      <ul class="diff">
+        <li class="diff__row">
+          <div class="diff__k"><span class="dot" role="img" aria-label="Fra pressens gennemgang" title="Fra pressens gennemgang"></span>Første gang</div>
+          <div class="diff__v"><span class="sr">Før: </span><del>20 min</del><span class="sr"> Nu: </span><ins>15 min</ins></div>
+          <p class="diff__p">Objektivet åbner fem minutter tidligere end før.</p>
+        </li>
+        <li class="diff__row">
+          <div class="diff__k"><span class="dot" role="img" aria-label="Fra pressens gennemgang" title="Fra pressens gennemgang"></span>Barriere</div>
+          <div class="diff__v"><span class="sr">Før: </span><del>3.000</del><span class="sr"> Nu: </span><ins>4.000</ins></div>
+          <p class="diff__p">Tormentor tåler mere skade end før.</p>
+        </li>
+        <li class="diff__row">
+          <div class="diff__k"><span class="dot dot--valve" role="img" aria-label="Står i Valves noter" title="Står i Valves noter"></span>Reflekteret skade</div>
+          <div class="diff__v"><span class="sr">Før: </span><del>35%</del><span class="sr"> Nu: </span><ins>15%</ins></div>
+          <p class="diff__p">Den starter på 15% og stiger med 5 procentpoint for hver gang, Tormentor er dræbt, op til 30%.</p>
+        </li>
+        <li class="diff__row">
+          <div class="diff__k"><span class="dot" role="img" aria-label="Fra pressens gennemgang" title="Fra pressens gennemgang"></span>Guld pr. spiller</div>
+          <div class="diff__v"><span class="sr">Før: </span><del>175</del><span class="sr"> Nu: </span><ins>125</ins></div>
+          <p class="diff__p">Den første bliver billigere, men der kommer 50 guld oveni for hver tidligere død.</p>
+        </li>
+        <li class="diff__row">
+          <div class="diff__k"><span class="dot" role="img" aria-label="Fra pressens gennemgang" title="Fra pressens gennemgang"></span>Aghanim's Shard</div>
+          <div class="diff__v diff__v--text"><span class="sr">Nu: </span><ins>Garanteret fra anden død</ins></div>
+          <p class="diff__p">Hvis alle på det vindende hold allerede har en Shard, bliver belønningen til guld i stedet.</p>
+        </li>
+        <li class="diff__row">
+          <div class="diff__k"><span class="dot dot--valve" role="img" aria-label="Står i Valves noter" title="Står i Valves noter"></span>Ny belønning</div>
+          <div class="diff__v diff__v--text"><span class="sr">Nu: </span><ins>Greater Horn of Battle</ins></div>
+          <p class="diff__p">En forbrugsitem, der dropper hver gang Tormentor dør.</p>
+        </li>
+      </ul>
+
+      <svg class="horn" viewBox="0 0 720 224" role="img" aria-labelledby="horn-t horn-d">
+        <title id="horn-t">Greater Horn of Battle</title>
+        <desc id="horn-d">En bølge af mega creeps på hver af dine tre baner, på vej mod fjendens base.</desc>
+        <g fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="6" y="64" width="44" height="72" rx="4"/>
+          <rect x="670" y="64" width="44" height="72" rx="4"/>
+        </g>
+        <g stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 6" opacity=".55">
+          <line x1="64" y1="40" x2="656" y2="40"/>
+          <line x1="64" y1="100" x2="656" y2="100"/>
+          <line x1="64" y1="160" x2="656" y2="160"/>
+        </g>
+        <g fill="var(--new)">
+          <g id="wave">
+            <rect x="92" y="26" width="26" height="26" rx="3"/>
+            <rect x="126" y="32" width="14" height="14" rx="2"/>
+            <rect x="146" y="32" width="14" height="14" rx="2"/>
+            <path d="M172 52 V28 l16 6 -16 6"/>
+          </g>
+          <use href="#wave" y="60"/>
+          <use href="#wave" y="120"/>
+        </g>
+        <g stroke="var(--new)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M214 40 H260 m-8 -7 l8 7 -8 7"/>
+          <path d="M214 100 H260 m-8 -7 l8 7 -8 7"/>
+          <path d="M214 160 H260 m-8 -7 l8 7 -8 7"/>
+        </g>
+        <text x="6" y="212">Din base</text>
+        <text x="714" y="212" text-anchor="end">Fjendens base</text>
+      </svg>
+      <p class="caption">Hornet bruges fra rygsækken, koster ingen mana og har én ladning. Hver bølge har mindst en siege creep og en flagbearer, og antallet følger den aktuelle creep-bølge. Den kan ikke stakkes.</p>
+
+      <div class="tool">
+        <h3 class="tool__title">Hvad får du, når Tormentor dør igen?</h3>
+        <p class="tool__hint">Træk i skyderen, og se hvordan reflekteret skade og guld vokser for hver gang, den har været dræbt.</p>
+        <label class="tool__label" for="tm-n">Tormentor har været dræbt <output id="tm-out" for="tm-n">0 gange</output> før</label>
+        <input class="range" id="tm-n" type="range" min="0" max="4" step="1" value="0">
+        <dl class="readout">
+          <div><dt>Reflekteret skade</dt><dd id="tm-reflect">15%<small id="tm-cap"></small></dd></div>
+          <div><dt>Guld til hver spiller</dt><dd id="tm-gold">125</dd></div>
+          <div><dt>Aghanim's Shard</dt><dd id="tm-shard">Ikke sikret</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="illusioner">
+    <div class="wrap">
+      <h2 class="sec__title">Illusioner kan bruge items</h2>
+      <p class="sec__lede">Hvert angreb fra en helt, eller en enhed der ligner en helt, har nu en Item Potency. Den bestemmer, hvor stærk en on-hit-effekt fra et item er. Helte ligger på 100%, men illusioner kan nu også bruge de fleste on-hit-effekter.</p>
+
+      <ul class="diff">
+        <li class="diff__row">
+          <div class="diff__k"><span class="dot dot--valve" role="img" aria-label="Står i Valves noter" title="Står i Valves noter"></span>Helte</div>
+          <div class="diff__v"><span class="sr">Nu: </span><ins>100%</ins></div>
+          <p class="diff__p">Standardværdien for et angreb.</p>
+        </li>
+        <li class="diff__row">
+          <div class="diff__k"><span class="dot dot--valve" role="img" aria-label="Står i Valves noter" title="Står i Valves noter"></span>Illusioner</div>
+          <div class="diff__v"><span class="sr">Nu: </span><ins>20%</ins></div>
+          <p class="diff__p">Kan nu anvende de fleste on-hit-effekter fra items.</p>
+        </li>
+        <li class="diff__row">
+          <div class="diff__k"><span class="dot dot--valve" role="img" aria-label="Står i Valves noter" title="Står i Valves noter"></span>Illusion Rune</div>
+          <div class="diff__v"><span class="sr">Nu: </span><ins>40%</ins></div>
+          <p class="diff__p">Illusioner fra en Illusion Rune får det dobbelte af en almindelig illusion.</p>
+        </li>
+        <li class="diff__row">
+          <div class="diff__k"><span class="dot dot--valve" role="img" aria-label="Står i Valves noter" title="Står i Valves noter"></span>Orb of Corrosion</div>
+          <div class="diff__v diff__v--text"><span class="sr">Nu: </span><ins>Virker med illusioner</ins></div>
+          <p class="diff__p">Corrosion-effekten kan nu komme fra illusioner.</p>
+        </li>
+        <li class="diff__row">
+          <div class="diff__k"><span class="dot" role="img" aria-label="Fra pressens gennemgang" title="Fra pressens gennemgang"></span>Undtagelser</div>
+          <div class="diff__v diff__v--text"><span class="sr">Nu: </span><ins>Ikke alt virker</ins></div>
+          <p class="diff__p">Nogle effekter er holdt udenfor, fx Skull Bashers bash.</p>
+        </li>
+      </ul>
+
+      <div class="tool">
+        <h3 class="tool__title">Hvor stærk er effekten?</h3>
+        <p class="tool__hint">Vælg hvem der slår, og se hvor stor en del af et items on-hit-effekt, der kommer igennem.</p>
+        <div class="choice" role="group" aria-label="Vælg angriber">
+          <button class="btn" type="button" data-p="100" data-n="Helt" aria-pressed="true">Helt</button>
+          <button class="btn" type="button" data-p="40" data-n="Illusion fra Illusion Rune" aria-pressed="false">Illusion fra Illusion Rune</button>
+          <button class="btn" type="button" data-p="20" data-n="Almindelig illusion" aria-pressed="false">Almindelig illusion</button>
+        </div>
+        <div class="bars">
+          <div class="bars__row">
+            <span class="bars__k">Styrke</span>
+            <div class="bars__track"><span class="bars__fill bars__fill--new" id="pot-fill"></span></div>
+            <span class="bars__v" id="pot-v">100%</span>
+          </div>
+        </div>
+        <p class="verdict" id="pot-text" aria-live="polite"></p>
+      </div>
+
+      <h3 class="sec__sub">Hvem får mest ud af det?</h3>
+      <p class="legend" style="margin-top:0"><span class="dot"></span>Det er esport.visions vurdering, ikke Valves. Mediet peger på Manta Style, Diffusal Blade, Eye of Skadi, Orb of Corrosion og det nye Skypiercer som de items, der vinder mest. Blandt heltene nævnes Chaos Knight, Dark Seer, Morphling, Vengeful Spirit og Spectre.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="helte">
+    <div class="wrap">
+      <h2 class="sec__title">Helte bliver tykkere, og magi gør mindre ondt</h2>
+      <p class="sec__lede">Alle helte starter med mere liv, og de fleste spells gør mindre skade. Magic resistance fra Intelligence bliver samtidig lidt billigere at få.</p>
+
+      <ul class="diff">
+        <li class="diff__row">
+          <div class="diff__k"><span class="dot" role="img" aria-label="Fra pressens gennemgang" title="Fra pressens gennemgang"></span>Basisliv</div>
+          <div class="diff__v"><span class="sr">Før: </span><del>120</del><span class="sr"> Nu: </span><ins>200</ins></div>
+          <p class="diff__p">Hver helt starter med 80 liv mere, før Strength lægges til.</p>
+        </li>
+        <li class="diff__row">
+          <div class="diff__k"><span class="dot" role="img" aria-label="Fra pressens gennemgang" title="Fra pressens gennemgang"></span>Liv pr. Strength</div>
+          <div class="diff__v"><span class="sr">Før: </span><del>22</del><span class="sr"> Nu: </span><ins>20</ins></div>
+          <p class="diff__p">Hvert Strength-point giver to liv mindre.</p>
+        </li>
+        <li class="diff__row">
+          <div class="diff__k"><span class="dot dot--valve" role="img" aria-label="Står i Valves noter" title="Står i Valves noter"></span>Magic resistance pr. Intelligence</div>
+          <div class="diff__v"><span class="sr">Før: </span><del>0,1%</del><span class="sr"> Nu: </span><ins>0,125%</ins></div>
+          <p class="diff__p">Otte Intelligence giver nu 1% magic resistance. Før skulle der ti til.</p>
+        </li>
+        <li class="diff__row">
+          <div class="diff__k"><span class="dot dot--valve" role="img" aria-label="Står i Valves noter" title="Står i Valves noter"></span>Spell damage</div>
+          <div class="diff__v diff__v--text"><span class="sr">Nu: </span><ins>Sat ned</ins></div>
+          <p class="diff__p">Skaden er skåret ned på størstedelen af Magic- og Pure-spells. De præcise tal står under hver helt i Valves noter.</p>
+        </li>
+      </ul>
+
+      <div class="tool">
+        <h3 class="tool__title">Får din helt mere eller mindre liv?</h3>
+        <p class="tool__hint">Regnestykket bruger kun de to tal ovenfor: basisliv plus liv pr. Strength gange din samlede Strength. Items og talents med ekstra liv er ikke med.</p>
+        <label class="tool__label" for="hp-str">Samlet Strength: <output id="hp-out" for="hp-str">30</output></label>
+        <input class="range" id="hp-str" type="range" min="10" max="80" step="1" value="30">
+        <div class="bars">
+          <div class="bars__row">
+            <span class="bars__k">Før</span>
+            <div class="bars__track"><span class="bars__fill bars__fill--old" id="hp-old"></span></div>
+            <span class="bars__v" id="hp-old-v"></span>
+          </div>
+          <div class="bars__row">
+            <span class="bars__k">Nu</span>
+            <div class="bars__track"><span class="bars__fill bars__fill--new" id="hp-new"></span></div>
+            <span class="bars__v" id="hp-new-v"></span>
+          </div>
+        </div>
+        <p class="verdict" id="hp-text" aria-live="polite"></p>
+        <p class="caption">Ved 40 Strength er det lige meget. Under 40 får du mere liv, over 40 får du lidt mindre.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="map">
+    <div class="wrap">
+      <h2 class="sec__title">Roshan, glyph og indkomst</h2>
+      <p class="sec__lede">Kortets rytme ændrer sig. Roshan kommer hurtigere igen, glyph kan bruges to gange, og passiv indkomst vokser ikke længere med tiden.</p>
+
+      <ul class="diff">
+        <li class="diff__row">
+          <div class="diff__k"><span class="dot" role="img" aria-label="Fra pressens gennemgang" title="Fra pressens gennemgang"></span>Roshans genopstandelse</div>
+          <div class="diff__v diff__v--text"><span class="sr">Nu: </span><ins>1 minut hurtigere pr. død, mindst 5 min</ins></div>
+          <p class="diff__p">En ny timer viser, hvem der bærer Aegis of the Immortal. Kilden oplyser ikke den gamle grundtid.</p>
+        </li>
+        <li class="diff__row">
+          <div class="diff__k"><span class="dot" role="img" aria-label="Fra pressens gennemgang" title="Fra pressens gennemgang"></span>Glyph of Fortification</div>
+          <div class="diff__v diff__v--text"><span class="pips" aria-hidden="true"><i></i><i></i></span><span class="sr">Nu: </span><ins>2 ladninger</ins></div>
+          <p class="diff__p">Ny ladning hvert 6. minut og 7 sekunder mellem brug. Den nulstilles ikke længere, når en bygning falder.</p>
+        </li>
+        <li class="diff__row">
+          <div class="diff__k"><span class="dot" role="img" aria-label="Fra pressens gennemgang" title="Fra pressens gennemgang"></span>Passivt guld</div>
+          <div class="diff__v diff__v--text"><span class="sr">Nu: </span><ins>Stiger ikke med tiden</ins></div>
+          <p class="diff__p">Indkomsten vokser ikke længere, jo længere kampen varer. Kilden oplyser ikke det gamle tal.</p>
+        </li>
+        <li class="diff__row">
+          <div class="diff__k"><span class="dot" role="img" aria-label="Fra pressens gennemgang" title="Fra pressens gennemgang"></span>Passiv XP</div>
+          <div class="diff__v diff__v--text"><span class="sr">Nu: </span><ins>50 i minuttet</ins></div>
+          <p class="diff__p">Alle helte får det efter starthornet, også mens de er døde.</p>
+        </li>
+        <li class="diff__row">
+          <div class="diff__k"><span class="dot" role="img" aria-label="Fra pressens gennemgang" title="Fra pressens gennemgang"></span>Lane creeps</div>
+          <div class="diff__v diff__v--text"><span class="sr">Nu: </span><ins>Justeret</ins></div>
+          <p class="diff__p">Ranged creeps, hvor ofte siege creeps kommer, og hvornår flagbearers spawner sent i spillet er ændret. Kilden giver ingen tal.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="items">
+    <div class="wrap">
+      <h2 class="sec__title">Nye og fjernede items</h2>
+      <p class="sec__lede">Der kommer nye items, én vender tilbage, og én forsvinder. De neutrale items får en tier mindre.</p>
+
+      <ul class="diff">
+        <li class="diff__row">
+          <div class="diff__k"><span class="dot dot--valve" role="img" aria-label="Står i Valves noter" title="Står i Valves noter"></span>Greater Horn of Battle</div>
+          <div class="diff__v diff__v--text"><span class="sr">Nu: </span><ins>Ny</ins></div>
+          <p class="diff__p">Dropper fra Tormentor og kalder mega creeps på alle tre baner. Se Tormentor ovenfor.</p>
+        </li>
+        <li class="diff__row">
+          <div class="diff__k"><span class="dot" role="img" aria-label="Fra pressens gennemgang" title="Fra pressens gennemgang"></span>Bloodslinger</div>
+          <div class="diff__v diff__v--text"><span class="sr">Nu: </span><ins>Ny</ins></div>
+          <p class="diff__p">Kilden oplyser ikke stats.</p>
+        </li>
+        <li class="diff__row">
+          <div class="diff__k"><span class="dot" role="img" aria-label="Fra pressens gennemgang" title="Fra pressens gennemgang"></span>Caduceus</div>
+          <div class="diff__v diff__v--text"><span class="sr">Nu: </span><ins>Ny</ins></div>
+          <p class="diff__p">Kilden oplyser ikke stats.</p>
+        </li>
+        <li class="diff__row">
+          <div class="diff__k"><span class="dot" role="img" aria-label="Fra pressens gennemgang" title="Fra pressens gennemgang"></span>Ristul's Devotion</div>
+          <div class="diff__v diff__v--text"><span class="sr">Nu: </span><ins>Ny</ins></div>
+          <p class="diff__p">Kilden oplyser ikke stats.</p>
+        </li>
+        <li class="diff__row">
+          <div class="diff__k"><span class="dot" role="img" aria-label="Fra pressens gennemgang" title="Fra pressens gennemgang"></span>Skypiercer</div>
+          <div class="diff__v diff__v--text"><span class="sr">Nu: </span><ins>Ny</ins></div>
+          <p class="diff__p">Nævnt som en af patchens store item-vindere. Kilden oplyser ikke stats.</p>
+        </li>
+        <li class="diff__row">
+          <div class="diff__k"><span class="dot" role="img" aria-label="Fra pressens gennemgang" title="Fra pressens gennemgang"></span>Quarterstaff</div>
+          <div class="diff__v diff__v--text"><span class="sr">Nu: </span><ins>Tilbage for 900 guld</ins></div>
+          <p class="diff__p">Kan købes igen og giver 10 skade og 10 angrebshastighed.</p>
+        </li>
+        <li class="diff__row">
+          <div class="diff__k"><span class="dot" role="img" aria-label="Fra pressens gennemgang" title="Fra pressens gennemgang"></span>Javelin</div>
+          <div class="diff__v diff__v--text"><span class="sr">Før: </span><del>Kunne købes</del><span class="sr"> Nu: </span><ins>Fjernet</ins></div>
+          <p class="diff__p">Er ikke længere i spillet.</p>
+        </li>
+        <li class="diff__row">
+          <div class="diff__k"><span class="dot" role="img" aria-label="Fra pressens gennemgang" title="Fra pressens gennemgang"></span>Neutrale tiers</div>
+          <div class="diff__v"><span class="sr">Før: </span><del>5</del><span class="sr"> Nu: </span><ins>4</ins></div>
+          <p class="diff__p">Den sidste tier åbner efter 50 minutter.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="rettelser">
+    <div class="wrap">
+      <h2 class="sec__title">Rettelser og småting</h2>
+      <p class="sec__lede">Valves nyhedsindlæg til patchen lister også genveje, visning, ydelse og fejlrettelser. Her er hele listen, oversat.</p>
+
+      <div class="choice" id="chips" role="group" aria-label="Filtrér efter type"></div>
+
+      <ul class="fixes" id="fixes">
+        <li data-c="Genveje"><span><span class="dot dot--valve"></span>Du kan binde genveje til de enkelte evner i Invokers invoked spells, Largos sange og Kez' Sai-evner.</span><span class="fixes__cat">Genveje</span></li>
+        <li data-c="Genveje"><span><span class="dot dot--valve"></span>Nye genvejsindstillinger til Lycans Summon Wolves, Kobold Soldier, Giant Wolf, Radigull, Odobenus Frostmage, Eimermole Foreman, Ancient Croaker, Ancient Marshmage og Ancient Ogre Seal.</span><span class="fixes__cat">Genveje</span></li>
+        <li data-c="Visning"><span><span class="dot dot--valve"></span>Ny indstilling, der viser silhuetter af enheder, når noget skjuler dem.</span><span class="fixes__cat">Visning</span></li>
+        <li data-c="Visning"><span><span class="dot dot--valve"></span>Hand of Midas har sin egen kategori i Dota+'s oversigt over modtaget guld.</span><span class="fixes__cat">Visning</span></li>
+        <li data-c="Ydelse"><span><span class="dot dot--valve"></span>Klienten kører bedre, når illusioner opstår.</span><span class="fixes__cat">Ydelse</span></li>
+        <li data-c="Ydelse"><span><span class="dot dot--valve"></span>Serverens statistikindsamling er lettere, især omkring heltes død.</span><span class="fixes__cat">Ydelse</span></li>
+        <li data-c="Ydelse"><span><span class="dot dot--valve"></span>Enhedernes adfærdsmaskine er omskrevet, så serveren kører bedre.</span><span class="fixes__cat">Ydelse</span></li>
+        <li data-c="Fejl"><span><span class="dot dot--valve"></span>Aghanim's Shard kan ikke længere sælges i samme øjeblik, den bliver afleveret fra en courier til en helt med fuldt inventory.</span><span class="fixes__cat">Fejl</span></li>
+        <li data-c="Fejl"><span><span class="dot dot--valve"></span>Man kan ikke længere flytte andre heltes items til og fra deres stash.</span><span class="fixes__cat">Fejl</span></li>
+        <li data-c="Fejl"><span><span class="dot dot--valve"></span>Beastmaster kunne gøre lane creeps varigt tykkere og hurtigere med bestemte talents, en illusion og en disconnect.</span><span class="fixes__cat">Fejl</span></li>
+        <li data-c="Fejl"><span><span class="dot dot--valve"></span>Meepo kunne skabe uendeligt guld med en bestemt kombination af items og megameepo.</span><span class="fixes__cat">Fejl</span></li>
+        <li data-c="Fejl"><span><span class="dot dot--valve"></span>Et nedbrud er rettet, når man solgte alle teleport scrolls på den primære Meepo, mens en klon teleporterede.</span><span class="fixes__cat">Fejl</span></li>
+        <li data-c="Fejl"><span><span class="dot dot--valve"></span>Naga Siren dræber ikke længere uvedkommende illusioner, når hun bruger Mirror Image.</span><span class="fixes__cat">Fejl</span></li>
+        <li data-c="Fejl"><span><span class="dot dot--valve"></span>Oracles Prognostication-HUD dukker ikke længere nogle gange op det forkerte sted.</span><span class="fixes__cat">Fejl</span></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot" id="kilder">
+  <div class="wrap foot__cols">
+    <div>
+      <h2>Kilder</h2>
+      <ul>
+        <li><a href="https://www.dota2.com/patches/7.42">Valves officielle patch notes 7.42</a></li>
+        <li><a href="https://www.dota2.com/newsentry/689773669992367212">Valves nyhedsindlæg: 7.42 Gameplay Update</a></li>
+        <li><a href="https://steamdb.info/patchnotes/26767486/">SteamDB: build 26767486</a></li>
+        <li><a href="https://www.techtroduce.com/dota-2-patch-7-42-mega-creeps-roshan-tormentor">Techtroduce: Mega Creep Item and Roshan</a></li>
+        <li><a href="https://esport.vision/news/dota-2-patch-7-42-key-changes-economy-map-tormentor">esport.vision: The 7 Biggest Changes</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Om siden</h2>
+      <p>Uofficiel forklaring på dansk, skrevet den 18. november 2026, få timer efter udgivelsen. Tal markeret med en tom prik er hentet fra pressen og kan afvige fra Valves endelige noter.</p>
+      <p>Dota 2 er et varemærke tilhørende Valve Corporation. Siden er ikke tilknyttet Valve. Skrifttypen Archivo er under SIL Open Font License.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
